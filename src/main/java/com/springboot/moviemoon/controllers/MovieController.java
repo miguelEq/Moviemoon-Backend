@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.moviemoon.model.Movie;
-import com.springboot.moviemoon.requesthttp.ClientHttp;
+import com.springboot.moviemoon.requesthttp.*;
 import com.springboot.moviemoon.services.MovieService;
 
 @RestController
@@ -19,8 +19,8 @@ public class MovieController {
 		return this.movieService.getMovies();
 	}
     @GetMapping("/request")
-    public String getRequest() {
-    	 this.client.getDataJson();
-    	return "ojala ande";
+    public List<ModelData> getRequest() {
+    	 return this.client.getDataJson();
+    	//return "ojala ande";
     }
 }

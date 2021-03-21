@@ -41,18 +41,11 @@ public class ClientHttp {
 		
 	}
 */
-	public List<Map<String,String>> getDataJson() {
-		URI endpoint=URI.create("https://jsonplaceholder.typicode.com/albums");
-		   HttpClient client = HttpClient.newHttpClient();
-		   HttpRequest request =HttpRequest.newBuilder().
-				                uri(endpoint).
-				                header("Accept", "application/json").build();
+	public List<ModelData> getDataJson() {
+	
 		  try {
-		   HttpResponse<String> response =
-			          client.send(request, BodyHandlers.ofString());
-		   String body=response.body();
-		   System.out.print(body);
-		   return null;
+		        HttpService httpService = new HttpService();
+		      return httpService.sendGetListRequest("https://jsonplaceholder.typicode.com/albums", ModelData.class);
 		  }catch(Exception e) {
 			  System.out.print(e.getMessage());
 			  return null;
@@ -69,3 +62,29 @@ class UncheckedObjectMapper extends ObjectMapper {
     }
     }
 }
+
+class HttpService {
+
+private final HttpClient httpClient= HttpClient.newBuilder().build();
+
+public HttpService() {}
+
+public <T> T sendGetRequest(String url, Class<T> responseType) throws IOException, InterruptedException {
+    HttpRequest request = HttpRequest.newBuilder().GET().uri(URI.create(url)).header("Accept", "application/json").build();
+
+    HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+
+    return new ObjectMapper().readValue(response.body(), responseType);
+}
+
+public <T> List<T> sendGetListRequest(String url, Class<T> responseType) throws IOException, InterruptedException {
+
+    HttpRequest request = HttpRequest.newBuilder().GET().uri(URI.create(url)).header("Accept", "application/json").build();
+
+    HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+
+    ObjectMapper objectMapper = new ObjectMapper();
+    return objectMapper.readValue(response.body(), objectMapper.getTypeFactory().constructCollectionType(List.class, responseType));
+}}
+
+
