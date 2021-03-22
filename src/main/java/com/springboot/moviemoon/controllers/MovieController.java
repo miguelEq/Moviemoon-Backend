@@ -14,7 +14,8 @@ import com.springboot.moviemoon.services.MovieService;
 @RestController
 public class MovieController {
 	private ClientHttp client=new ClientHttp();
-    private MovieService movieService= new MovieService();
+	@Autowired
+    private MovieService movieService;
     @GetMapping("/movies")
     public List<Movie> getMovies(){
 		return this.movieService.getMovies();
