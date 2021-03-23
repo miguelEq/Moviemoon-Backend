@@ -1,5 +1,6 @@
 package com.springboot.moviemoon.services;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,9 @@ public class MovieService {
     @Autowired
 	private MovieRepository movieRepository;
      public List<Movie> getMovies(){
-    	 return List.of(new Movie(),new Movie(),new Movie());
+    	 return this.movieRepository.findAll();
      }
-     public void savaMovie() {
-    	 this.movieRepository.save(new Movie());
+     public void createMovie(String title,String imageUrl, String trailerUrl,LocalDate fechaEstreno) {
+    	 this.movieRepository.save(new Movie(title,imageUrl,trailerUrl,fechaEstreno));
      }
 }

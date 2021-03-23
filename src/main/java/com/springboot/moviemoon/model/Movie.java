@@ -1,5 +1,6 @@
 package com.springboot.moviemoon.model;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.ElementCollection;
@@ -14,12 +15,18 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 	private String title;
-    @ElementCollection
-	private List<String> genres;
-    
-	public Movie() {
-		this.title="Titanic";
-		this.genres=List.of("accion","comedia","romance");
+    private String image;
+    private String trailer;
+    private LocalDate estreno;
+
+    public Movie() {}
+
+	public Movie(String title, String image, String trailer, LocalDate estreno) {
+		super();
+		this.title = title;
+		this.image = image;
+		this.trailer = trailer;
+		this.estreno = estreno;
 	}
 
 	public long getId() {
@@ -38,14 +45,29 @@ public class Movie {
 		this.title = title;
 	}
 
-	public List<String> getGenres() {
-		return genres;
+	public String getImage() {
+		return image;
 	}
 
-	public void setGenres(List<String> genres) {
-		this.genres = genres;
+	public void setImage(String image) {
+		this.image = image;
 	}
 
+	public String getTrailer() {
+		return trailer;
+	}
 
+	public void setTrailer(String trailer) {
+		this.trailer = trailer;
+	}
+
+	public LocalDate getEstreno() {
+		return estreno;
+	}
+
+	public void setEstreno(LocalDate estreno) {
+		this.estreno = estreno;
+	}
+    
    
 }
