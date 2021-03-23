@@ -22,4 +22,7 @@ public class MovieService {
      public void createMovie(String title,String imageUrl, String trailerUrl,LocalDate fechaEstreno) {
     	 this.movieRepository.save(new Movie(title,imageUrl,trailerUrl,fechaEstreno));
      }
+	public Movie getMovie(Long id) {
+		return this.movieRepository.getOne(id);
+	}
 }
