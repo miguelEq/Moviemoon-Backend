@@ -14,9 +14,7 @@
 **response status**
 * 200:
 ```json
-[{"titulo":"Titanic","imagen":"url","trailer":"url","estreno":""yyyy-mm-dd"},
- {"titulo":"Titanic","imagen":"url","trailer":"url","estreno":""yyyy-mm-dd"},
- {"titulo":"Titanic","imagen":"url","trailer":"url","estreno":""yyyy-mm-dd"}]
+[{"titulo":"nombre","imagen":"url","trailer":"url","estreno":"year-month-day"}]
 ```
 
 #Creacion de una nueva pelicula en el sistema 
@@ -28,7 +26,7 @@
 {"titulo":"Titanic",
 "imagen":"url",
 "trailer":"url",
-"estreno":"yyyy-mm-dd"}
+"estreno":"year-month-day"}
 ```
 **response status**
 * 201
