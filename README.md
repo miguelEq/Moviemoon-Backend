@@ -8,7 +8,7 @@
 
 ## Endpoints 
 
-Obtener todas las peliculas del sistema
+#Obtener todas las peliculas del sistema
 
 #### GET localhost:8080/peliculas
 **response status**
@@ -18,7 +18,7 @@ Obtener todas las peliculas del sistema
  {"titulo":"Titanic","imagen":"url","trailer":"url","estreno":"fecha"},
  {"titulo":"Titanic","imagen":"url","trailer":"url","estreno":"fecha"}]
 ```
-Creacion de una nueva pelicula en el sistema 
+#Creacion de una nueva pelicula en el sistema 
 
 #### POST localhost:8080/peliculas
 
