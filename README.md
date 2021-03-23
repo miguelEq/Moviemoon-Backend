@@ -10,31 +10,29 @@
 
 #Obtener todas las peliculas del sistema
 
-#### GET localhost:8080/peliculas
+#### GET localhost:8080/movies
 **response status**
 * 200:
 ```json
-[{"titulo":"Titanic","imagen":"url","trailer":"url","estreno":"fecha"},
- {"titulo":"Titanic","imagen":"url","trailer":"url","estreno":"fecha"},
- {"titulo":"Titanic","imagen":"url","trailer":"url","estreno":"fecha"}]
+[{"titulo":"Titanic","imagen":"url","trailer":"url","estreno":""yyyy-mm-dd"},
+ {"titulo":"Titanic","imagen":"url","trailer":"url","estreno":""yyyy-mm-dd"},
+ {"titulo":"Titanic","imagen":"url","trailer":"url","estreno":""yyyy-mm-dd"}]
 ```
+
 #Creacion de una nueva pelicula en el sistema 
 
-#### POST localhost:8080/peliculas
+#### POST localhost:8080/movies
 
 **body**
 ```json
 {"titulo":"Titanic",
 "imagen":"url",
 "trailer":"url",
-"estreno":"fecha"}
+"estreno":"yyyy-mm-dd"}
 ```
 **response status**
 * 201
-```json
-{"message":"create succesfull"}
-```
-
+    create succesfull
 * 400:
 ```json
 {"message":"datos incorrectos"}
