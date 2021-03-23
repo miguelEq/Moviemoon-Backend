@@ -10,8 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.springboot.moviemoon.model.Movie;
 import com.springboot.moviemoon.repositories.MovieRepository;
-//@Transactional
-//@Service
+
 @Component
 public class MovieService {
     @Autowired
@@ -23,6 +22,9 @@ public class MovieService {
     	 this.movieRepository.save(new Movie(title,imageUrl,trailerUrl,fechaEstreno));
      }
 	public Movie getMovie(Long id) {
-		return this.movieRepository.getOne(id);
+		return this.movieRepository.findById(id).get();
+	}
+	public Movie getMovieByTitle(String titulo) {
+		return this.movieRepository.getMovieByTitle(titulo.toLowerCase());
 	}
 }
