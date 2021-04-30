@@ -35,3 +35,21 @@
 ```json
 {"message":"datos incorrectos"}
 ```
+#Obtener una pelicula mediante su id
+
+#### GET localhost:8080/movies/id
+**response status**
+* 200:
+```json
+[{"titulo":"nombre","imagen":"url","trailer":"url","estreno":"year-month-day"}]
+```
+#Buscar peliculas por su titulo 
+
+#### GET localhost:8080/movies/search/titulo
+**response status**
+* 200:
+```json
+[{"titulo":"nombre","imagen":"url","trailer":"url","estreno":"year-month-day"}]
+```
+
+
